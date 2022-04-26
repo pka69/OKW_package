@@ -1,4 +1,4 @@
-okrSejmArr = [
+okrSejm = [
     [1, "Legnica", 12],
     [2, "Wałbrzych", 8],
     [3, "Wrocław", 14],
@@ -42,7 +42,7 @@ okrSejmArr = [
     [41, "Szczecin", 12],
 ]
 
-teryt3 = [
+teryt = [
     "020",
     "021",
     "022",
@@ -124,4 +124,10 @@ static_data_urls = {
     'kandsenat': [
         "https://ewybory.s3.amazonaws.com/data/kand_senat_2019s.json"
     ]
+}
+
+wybory = {
+    "ankieta_dev": "wybory_{}_okw.ankieta_{}",
+    "sejm_dev": "wybory_{}_sejm_{}",
+    "senat_dev": "wybory_{}_senat_{}",
 }
