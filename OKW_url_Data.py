@@ -34,7 +34,7 @@ def get_static_data_url(url_key):
     df = pd.DataFrame()
     for url in urls:
         resp = requests.get(url)
-        df = pd.concat([df, pd.json_normalize(resp.json(), max_level=2])
+        df = pd.concat([df, pd.json_normalize(resp.json(), max_level=2)])
     return df
 
 def get_okrSejm():
@@ -55,6 +55,8 @@ def get_kandyd_senat():
 def add_okr_name_sejm(df):
     return pd.merge(df, okrSejm_df[['num_okr_sejm', 'nazwa_okregu']], on='num_okr_sejm')
     
-def get_wybory_data():
+def get_wybory_data(level=0):
     url = API_url.format(wybory[wyborySel].format(stage, year))
-    
+    resp = requests.get(url)
+    df = pd.json_normalize(resp.json(), max_level=level)
+    return df
